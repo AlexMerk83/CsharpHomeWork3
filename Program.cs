@@ -101,8 +101,41 @@ bool IsPalindrome(string StrToCheck)
 // A (7,-5, 0); B (1,-1,9) -> 11.53
 void Task21()
 {
+    Console.Clear();
+    Console.WriteLine("Enter coordinates (X, Y, Z) of Point A");
 
+    int x1 = ReadInt("X: ");
+    int y1 = ReadInt("Y: ");
+    int z1 = ReadInt("Z: ");
+
+    System.Console.WriteLine();
+    Console.WriteLine("Enter coordinates (X, Y, Z) of Point B");
+
+    int x2 = ReadInt("X: ");
+    int y2 = ReadInt("Y: ");
+    int z2 = ReadInt("Z: ");
+
+    double dist = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(z2 - z1, 2));
+
+    System.Console.WriteLine();
+    System.Console.WriteLine($"The distance between ({x1},{y1},{z1}) and ({x2},{y2},{z2}) equals {Math.Round(dist,2)})");
 }
+
+int ReadInt(string msg)
+{
+    int res = 0;
+    
+    System.Console.Write(msg);
+
+    while (!int.TryParse(Console.ReadLine(), out res))
+    {
+        System.Console.WriteLine("Input error. Enter an integer number.");
+        System.Console.Write(msg);
+    }
+
+    return res;
+}
+
 
 // Задача 23
 // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
