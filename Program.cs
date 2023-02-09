@@ -71,5 +71,20 @@ void Task21()
 // 5 -> 1, 8, 27, 64, 125
 void Task23()
 {
+    int N = 0;
 
+    Console.Clear();
+    System.Console.Write("Enter an integer number above 0: ");
+    
+    while (!int.TryParse(Console.ReadLine(), out N) || N <= 0)
+    {
+        System.Console.WriteLine("Input error. Please try again...");
+        Console.ReadKey();
+        Console.Clear();
+        System.Console.Write("Enter an integer number above 0: ");
+    }
+
+    System.Console.WriteLine();
+    for (int i = 1; i <= N; i++)
+        System.Console.WriteLine(Math.Pow(i, 3));
 }
