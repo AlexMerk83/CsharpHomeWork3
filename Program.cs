@@ -53,7 +53,46 @@ while (isWork)
 // 23432 -> да
 void Task19()
 {
+    bool isCorrect = false;
+    string sNum = "";
 
+    while (!isCorrect)
+    {
+        Console.Clear();
+        System.Console.Write("Enter 5-digit integer number: ");
+        sNum = Console.ReadLine();
+
+        if (int.TryParse(sNum, out int i) && i > 9999 && i < 100000)
+            isCorrect = true;
+        else
+        {
+            System.Console.WriteLine("Input Error. Try again.");
+            Console.ReadKey();
+        }
+    }
+    
+    if (IsPalindrome(sNum))
+        System.Console.WriteLine($"Number {sNum} is a palindrome");
+    else
+        System.Console.WriteLine($"Number {sNum} is not a palindrome");
+}
+
+bool IsPalindrome(string StrToCheck)
+{
+    bool Pal = true;
+    int i = 0; 
+
+    StrToCheck = StrToCheck.ToLower();
+
+    while (Pal && i < StrToCheck.Length / 2)
+    {
+            if (StrToCheck[i] != StrToCheck[StrToCheck.Length - i -1])
+            Pal = false;
+
+        i++;
+    }
+    
+    return Pal;
 }
 
 // Задача 21
